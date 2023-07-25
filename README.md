@@ -42,26 +42,26 @@ Web app doesn't have Checkout and Tracking of Order Function
 Database Schema:
 users table:
 
-id (Primary key, auto-incrementing integer)
-name (String)
-email (String)
-password (String)
-remember_token (String, nullable)
-is_admin (tinyint)
-is_active (tinyint)
-created_at (Timestamp)
+id (Primary key, auto-incrementing integer),
+name (String),
+email (String),
+password (String),
+remember_token (String, nullable),
+is_admin (tinyint),
+is_active (tinyint),
+created_at (Timestamp),
 updated_at (Timestamp)
 
 addresses table:
 
-id (Primary key, auto-incrementing integer)
-user_id (Foreign key referencing users.id)
-address_line_1 (String)
-address_line_2 (String, nullable)
-city (String)
-state (String)
-postal_code (String)
-created_at (Timestamp)
+id (Primary key, auto-incrementing integer),
+user_id (Foreign key referencing users.id),
+address_line_1 (String),
+address_line_2 (String, nullable),
+city (String),
+state (String),
+postal_code (String),
+created_at (Timestamp),
 updated_at (Timestamp)
 
 mobile_numbers table:
@@ -74,61 +74,53 @@ updated_at (Timestamp)
 
 categories table:
 
-id (Primary key, auto-incrementing integer)
-name (String)
-created_at (Timestamp)
+id (Primary key, auto-incrementing integer),
+name (String),
+created_at (Timestamp),
 updated_at (Timestamp)
 
 brands table:
 
-id (Primary key, auto-incrementing integer)
-name (String)
-created_at (Timestamp)
+id (Primary key, auto-incrementing integer),
+name (String),
+created_at (Timestamp),
 updated_at (Timestamp)
 
 products table:
 
-id (Primary key, auto-incrementing integer)
-name (String)
-description (Text)
-price (Decimal)
-brand_id (Foreign key referencing brands.id)
-category_id (Foreign key referencing categories.id)
-created_at (Timestamp)
-updated_at (Timestamp)
-
-
-sizes table:
-
-id (Primary key, auto-incrementing integer)
-name (String)
-created_at (Timestamp)
+id (Primary key, auto-incrementing integer),
+name (String),
+description (Text),
+price (Decimal),
+brand_id (Foreign key referencing brands.id),
+category_id (Foreign key referencing categories.id),
+created_at (Timestamp),
 updated_at (Timestamp)
 
 stocks table:
 
-id (Primary key, auto-incrementing integer)
-product_id (Foreign key referencing products.id)
-size_id (Foreign key referencing sizes.id)
-quantity (Integer)
-created_at (Timestamp)
+id (Primary key, auto-incrementing integer),
+product_id (Foreign key referencing products.id),
+size_id (Foreign key referencing sizes.id),
+quantity (Integer),
+created_at (Timestamp),
 updated_at (Timestamp)
 
 carts table:
 
-id (Primary key, auto-incrementing integer)
-user_id (Foreign key referencing users.id)
-created_at (Timestamp)
+id (Primary key, auto-incrementing integer),
+user_id (Foreign key referencing users.id),
+created_at (Timestamp),
 updated_at (Timestamp)
 
 cart_items table:
 
-id (Primary key, auto-incrementing integer)
-cart_id (Foreign key referencing carts.id)
-product_id (Foreign key referencing products.id)
-size (String)
-quantity (Integer)
-created_at (Timestamp)
+id (Primary key, auto-incrementing integer),
+cart_id (Foreign key referencing carts.id),
+product_id (Foreign key referencing products.id),
+size (String),
+quantity (Integer),
+created_at (Timestamp),
 updated_at (Timestamp)
 
 Models and Relationships
