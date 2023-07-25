@@ -1,10 +1,16 @@
 App Name: GoShopNow
+
 Developer Skill: Beginner 
+
 Backend Framework: Laravel
+
 Frontend: HTML, CSS, Bootstrap, JavaScript
 
+
 User Types:
-1.User ,
+
+1.User 
+
 2.Admin
 
 Functions(User):
