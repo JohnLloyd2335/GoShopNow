@@ -4,7 +4,7 @@ Backend Framework: Laravel
 Frontend: HTML, CSS, Bootstrap, JavaScript
 
 User Types:
-1.User
+1.User ,
 2.Admin
 
 Functions(User):
@@ -40,6 +40,7 @@ Limitations:
 Web app doesn't have Checkout and Tracking of Order Function
 
 Database Schema:
+
 users table:
 
 id (Primary key, auto-incrementing integer),
@@ -126,37 +127,55 @@ updated_at (Timestamp)
 Models and Relationships
 
 User Model (User.php):
+
 hasOne(Address::class)
+
 hasOne(MobileNumber::class)
+
 hasMany(Cart::class)
 
 Address Model (Address.php):
+
 belongsTo(User::class)
+
 
 MobileNumber Model (MobileNumber.php):
+
 belongsTo(User::class)
 
+
 Cart Model (Cart.php):
+
 belongsTo(User::class)
+
 hasMany(CartItem::class)
 
 CartItem Model (CartItem.php):
+
 belongsTo(Cart::class)
+
 belongsTo(Product::class)
 
 
 Product Model (Product.php):
 belongsTo(Brand::class)
+
 belongsTo(Category::class)
+
 hasMany(Stock::class)
+
 hasMany(CartItem::class)
 
 Brand Model (Brand.php):
+
+
 hasMany(Product::class)
 
 Category Model (Category.php):
+
 belongsToMany(Product::class, 'product_category')
 
 Stock Model (Stock.php):
+
 belongsTo(Product::class)
 
