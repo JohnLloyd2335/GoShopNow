@@ -158,6 +158,9 @@
                         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
                                 href="{{ route('products.index') }}" aria-expanded="false"><i class="mdi mdi-cart"></i><span
                                     class="hide-menu">Products</span></a></li>
+                                    <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
+                                        href="{{ route('adminOrders.index') }}" aria-expanded="false"><i class="mdi mdi-cart"></i><span
+                                            class="hide-menu">Orders</span></a></li>
                         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link"
                                 href="{{ route('manage_users.index') }}" aria-expanded="false"><i class="mdi mdi-account"></i><span
                                     class="hide-menu">Users</span></a></li>

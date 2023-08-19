@@ -3,6 +3,9 @@
 use App\Http\Controllers\Admin\ArchiveController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\ManageUserController;
+use App\Http\Controllers\Admin\OrderController as AdminOrderController;
+use App\Http\Controllers\Admin\PaymentController;
+use App\Http\Controllers\OrderController;
 use App\Http\Controllers\Admin\ProductBrandController;
 use App\Http\Controllers\Admin\ProductCategoryController;
 use App\Http\Controllers\Admin\ProductController as AdminProductController;
@@ -58,7 +61,12 @@ Route::group(['middleware' => ['verified','customer']], function(){
     Route::get('/profile/change_password',[CustomerProfileController::class,'changePassword'])->name('changePassword');
     Route::put('/profile/update_password',[CustomerProfileController::class,'updatePassword'])->name('updatePassword');
 
-    
+    Route::post('/checkout',[OrderController::class,'create'])->name('checkout');
+
+    Route::get('/my-orders',[OrderController::class,'index'])->name('orders.index');
+
+    Route::post('/payments',[PaymentController::class,'create'])->name('payments');
+    Route::delete('/my-orders/cancel',[OrderController::class,'cancelled'])->name('cancelOrder');
 });
 
 
@@ -69,6 +77,10 @@ Route::group(['middleware' => ['auth','admin'], 'prefix' => 'admin'], function()
     Route::resource('product_categories',ProductCategoryController::class);
     Route::resource('product_brands',ProductBrandController::class);
     Route::resource('products', AdminProductController::class);
+
+    Route::get('/orders',[AdminOrderController::class,'index'])->name('adminOrders.index');
+    Route::get('orders/{id}/edit',[AdminOrderController::class,'edit'])->name('adminOrders.edit');
+    Route::patch('orders/{id}/update',[AdminOrderController::class,'update'])->name('adminOrders.update');
 
     Route::get('archives',[ArchiveController::class,'index'])->name('archives.index');
     Route::get('archives/{id}',[ArchiveController::class,'show'])->name('archives.show');
@@ -84,4 +96,3 @@ Route::group(['middleware' => ['auth','admin'], 'prefix' => 'admin'], function()
     Route::post('profile/update_password',[ProfileController::class, 'update_password'])->name('admin.profile.updatepassword');
 });
 
-Route::view('/sample','sample');

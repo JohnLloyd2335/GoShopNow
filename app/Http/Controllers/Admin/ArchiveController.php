@@ -38,7 +38,7 @@ class ArchiveController extends Controller
                     $actionBtn .= '
                     <form action="' . $restoreRoute . '" method="POST" style="display: inline-block">
                     ' . csrf_field() . '
-                    <button type="submit" class="text-light delete btn btn-danger btn-sm"><span class="mdi mdi-delete"></span></button>';
+                    <button type="submit" class="text-light delete btn btn-danger btn-sm"><span class="mdi mdi-restore"></span></button>';
 
                     $actionBtn .= "</form></div>";
 

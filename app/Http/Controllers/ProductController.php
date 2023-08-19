@@ -13,7 +13,7 @@ class ProductController extends Controller
         $product = Product::with(['category', 'brand', 'media', 'stock'])
             ->select('id', 'name', 'price', 'description', 'products.brand_id', 'products.category_id')->findOrFail($id);
 
-        return view('customer.show_product',compact('product'));
+        return view('customer.show_product', compact('product'));
 
     }
 

@@ -15,6 +15,7 @@
 @endsection
 @section('content')
     <!-- sidebar + content -->
+
     <section class="">
         <div class="container">
             <div class="row">
@@ -27,20 +28,19 @@
                         <span>Show filter</span>
                     </button>
                     <!-- Collapsible wrapper -->
-                    <div class="collapse card d-lg-block mb-5" id="navbarSupportedContent">
+                    <div class="collapse show card mb-5 d-none d-lg-block" id="navbarSupportedContent">
                         <form action="{{ route('filterProductsWithPriceRange') }}" method="get">
                             @csrf
                             <div class="accordion" id="accordionPanelsStayOpenExample">
                                 <div class="accordion-item">
                                     <h2 class="accordion-header" id="headingOne">
-                                        <button class="accordion-button text-dark bg-light" type="button"
-                                            data-mdb-toggle="collapse" data-mdb-target="#panelsStayOpen-collapseOne"
-                                            aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
+                                        <button class="btn " type="button" data-toggle="collapse"
+                                                data-target="#panelsStayOpen-collapseOne" aria-expanded="true"
+                                                aria-controls="panelsStayOpen-collapseOne">
                                             Category
                                         </button>
                                     </h2>
-                                    <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show"
-                                        aria-labelledby="headingOne">
+                                    <div id="panelsStayOpen-collapseOne" class="collapse show" aria-labelledby="headingOne">
                                         <div class="accordion-body">
                                             <select name="category" class="form-control" id="category">
                                                 <option selected disabled>SELECT CATEGORY</option>
@@ -51,16 +51,16 @@
                                         </div>
                                     </div>
                                 </div>
+                                
                                 <div class="accordion-item">
                                     <h2 class="accordion-header" id="headingTwo">
-                                        <button class="accordion-button text-dark bg-light" type="button"
-                                            data-mdb-toggle="collapse" data-mdb-target="#panelsStayOpen-collapseTwo"
-                                            aria-expanded="true" aria-controls="panelsStayOpen-collapseTwo">
+                                        <button class="btn " type="button" data-toggle="collapse"
+                                                data-target="#panelsStayOpen-collapseTwo" aria-expanded="true"
+                                                aria-controls="panelsStayOpen-collapseTwo">
                                             Brands
                                         </button>
                                     </h2>
-                                    <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse show"
-                                        aria-labelledby="headingTwo">
+                                    <div id="panelsStayOpen-collapseTwo" class="collapse show" aria-labelledby="headingTwo">
                                         <div class="accordion-body">
                                             <select name="brand" class="form-control" id="brand">
                                                 <option selected disabled>SELECT BRAND</option>
@@ -71,54 +71,132 @@
                                         </div>
                                     </div>
                                 </div>
-
-
-
+                        
                                 <div class="accordion-item">
                                     <h2 class="accordion-header" id="headingThree">
-                                        <button class="accordion-button text-dark bg-light" type="button"
-                                            data-mdb-toggle="collapse" data-mdb-target="#panelsStayOpen-collapseThree"
-                                            aria-expanded="false" aria-controls="panelsStayOpen-collapseThree">
+                                        <button class="btn " type="button" data-toggle="collapse"
+                                                data-target="#panelsStayOpen-collapseThree" aria-expanded="false"
+                                                aria-controls="panelsStayOpen-collapseThree">
                                             Price
                                         </button>
                                     </h2>
-                                    <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse show"
-                                        aria-labelledby="headingThree">
+                                    <div id="panelsStayOpen-collapseThree" class="collapse" aria-labelledby="headingThree">
                                         <div class="accordion-body">
                                             <div class="row mb-3">
                                                 <div class="col-6">
-                                                    <p class="mb-0">
-                                                        Min
-                                                    </p>
-                                                    <div class="form-outline">
+                                                    <p class="mb-0">Min</p>
+                                                    <div class="form-group">
                                                         <input type="number" name="min" id="typeNumber"
-                                                            class="form-control @error('min') is-invalid @enderror" value="0"/>
-
+                                                               class="form-control @error('min') is-invalid @enderror" value="0"/>
                                                     </div>
                                                 </div>
                                                 <div class="col-6">
-                                                    <p class="mb-0">
-                                                        Max
-                                                    </p>
-                                                    <div class="form-outline">
+                                                    <p class="mb-0">Max</p>
+                                                    <div class="form-group">
                                                         <input type="number" name="max" id="typeNumber"
-                                                            class="form-control @error('max') is-invalid @enderror" value="0" />
-
+                                                               class="form-control @error('max') is-invalid @enderror" value="0" />
                                                     </div>
                                                 </div>
                                             </div>
-                                            <button type="submit"
-                                                class="btn btn-white w-100 border border-secondary mb-2">Apply</button>
-                                            <a href="{{ route('home') }}"
-                                                class="btn btn-white w-100 border border-secondary">Clear</a>
+                                            <button type="submit" class="btn btn-light border w-100 mb-2">Apply</button>
+                                            <a href="{{ route('home') }}" class="btn btn-light w-100">Clear</a>
                                         </div>
                                     </div>
                                 </div>
-
-
-
                             </div>
-                        </form>
+                        </form> 
+
+                        <!-- -->
+                        {{-- <div id="accordion">
+                            <div class="card">
+                              <div class="card-header" id="headingOne">
+                                <h5 class="mb-0">
+                                  <button class="btn" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                    Category
+                                  </button>
+                                </h5>
+                              </div>
+                          
+                              <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+                                <div class="card-body">
+                                    <div class="accordion-body">
+                                        <select name="category" class="form-control" id="category">
+                                            <option selected disabled>SELECT CATEGORY</option>
+                                            @foreach ($categories as $key => $value)
+                                                <option value="{{ $key }}">{{ $value }}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="card">
+                              <div class="card-header" id="headingTwo">
+                                <h5 class="mb-0">
+                                  <button class="btn" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                    Brand
+                                  </button>
+                                </h5>
+                              </div>
+                              <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+                                <div class="card-body">
+                                    <div class="accordion-body">
+                                        <select name="brand" class="form-control" id="brand">
+                                            <option selected disabled>SELECT BRAND</option>
+                                            @foreach ($brands as $key => $value)
+                                                <option value="{{ $key }}">{{ $value }}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="card">
+                              <div class="card-header" id="headingThree">
+                                <h5 class="mb-0">
+                                  <button class="btn" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                    Price
+                                  </button>
+                                </h5>
+                              </div>
+                              <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+                                <div class="card-body">
+                                    <div class="accordion-body">
+                                        <div class="row mb-3">
+                                            <div class="col-6">
+                                                <p class="mb-0">
+                                                    Min
+                                                </p>
+                                                <div class="form-outline">
+                                                    <input type="number" name="min" id="typeNumber"
+                                                        class="form-control @error('min') is-invalid @enderror" value="0"/>
+
+                                                </div>
+                                            </div>
+                                            <div class="col-6">
+                                                <p class="mb-0">
+                                                    Max
+                                                </p>
+                                                <div class="form-outline">
+                                                    <input type="number" name="max" id="typeNumber"
+                                                        class="form-control @error('max') is-invalid @enderror" value="0" />
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <button type="submit"
+                                            class="btn btn-white w-100 border border-secondary mb-2">Apply</button>
+                                        <a href="{{ route('home') }}"
+                                            class="btn btn-white w-100 border border-secondary">Clear</a>
+                                    </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          </form> --}}
+                        <!-- -->
+
+
                     </div>
                 </div>
                 <!-- sidebar -->

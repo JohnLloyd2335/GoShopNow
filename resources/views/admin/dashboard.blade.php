@@ -77,7 +77,7 @@
                     <div class="card card-hover">
                         <div class="box bg-danger d-flex align-items-center justify-content-between">
                             <div class="div">
-                                <h1 class="font-light text-white"><span class="mdi mdi-view-list"></span></h1>
+                                <h1 class="font-light text-white"><span class="mdi mdi-account"></span></h1>
                                 <h4 class="text-white">Users</h4>
                             </div>
                             <div class="div">
@@ -86,6 +86,39 @@
                         </div>
                     </div>
                 </div>
+
+                <div class="col-md-6 col-lg-3">
+                    <div class="card card-hover">
+                        <div class="box bg-secondary d-flex align-items-center justify-content-between">
+                            <div class="div">
+                                <h1 class="font-light text-white">
+                                    <span class="mdi mdi-cart"></span></h1>
+                                <h4 class="text-white">Orders</h4>
+                            </div>
+                            <div class="div">
+                                <h1 class="text-light">{{ $order_count }}</h1>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-3">
+                    <div class="card card-hover">
+                        <div class="box bg-dark d-flex align-items-center justify-content-between">
+                            <div class="div">
+                                <h1 class="font-light text-white">
+                                    <span class="mdi mdi-currency-usd"></span>
+                                </h1>
+                                <h4 class="text-white">Total Sales</h4>
+                            </div>
+                            <div class="div">
+                                <h1 class="text-light">₱{{ $total_sales }}</h1>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
             </div>
 
 
@@ -118,7 +151,7 @@
                                 </div>
                                 <!-- Latest Product -->
                             @empty
-                                <h3 class="text-center">No Latest Product Found</h3>
+                                <p class="text-center">No Latest Product Found</p>
                             @endforelse
 
                         <div class="ps-scrollbar-x-rail" style="left: 0px; bottom: 0px;"><div class="ps-scrollbar-x" tabindex="0" style="left: 0px; width: 0px;"></div></div><div class="ps-scrollbar-y-rail" style="top: 0px; right: 3px;"><div class="ps-scrollbar-y" tabindex="0" style="top: 0px; height: 0px;"></div></div></div>
@@ -137,7 +170,7 @@
                                     </tr>
                                     @empty
                                         <tr>
-                                            <th class="text-center">No Category Found</th>
+                                            <th class="text-center">No Brand Found</th>
                                         </tr>
                                     @endforelse
                                     
@@ -196,7 +229,7 @@
                                 </div>
                                 <!-- Latest Product -->
                             @empty
-                                <h3 class="text-center">No Latest Product Found</h3>
+                                <p class="text-center">No Latest Product Found</p>
                             @endforelse
 
                         <div class="ps-scrollbar-x-rail" style="left: 0px; bottom: 0px;"><div class="ps-scrollbar-x" tabindex="0" style="left: 0px; width: 0px;"></div></div><div class="ps-scrollbar-y-rail" style="top: 0px; right: 3px;"><div class="ps-scrollbar-y" tabindex="0" style="top: 0px; height: 0px;"></div></div></div>

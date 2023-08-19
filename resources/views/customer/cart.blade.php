@@ -12,6 +12,7 @@
 <!-- Breadcrumb -->
 @endsection
 @section('content')
+
     <!-- sidebar + content -->
     <section class="">
         <div class="container-fluid my-5">
@@ -111,7 +112,12 @@
                         </div>
             
                         <div class="mt-3">
-                          <a class="btn btn-success w-100 shadow-0 mb-2">Checkout</a>
+                          <form action="{{ route('checkout') }}" method="post">
+                            @method('POST')
+                            @csrf
+                            <button  type="submit" class="btn btn-success w-100 shadow-0 mb-2">Checkout</button>
+                          </form>
+                          
                           <a href="{{ route('home') }}" class="btn btn-light w-100 border mt-2"> Back to shop </a>
                         </div>
                       </div>

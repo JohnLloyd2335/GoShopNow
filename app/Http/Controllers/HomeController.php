@@ -61,6 +61,8 @@ class HomeController extends Controller
         $product_count = Product::count();
         $products = Product::select('id', 'name', 'price')->with(['media'])->inRandomOrder()->paginate(6);
 
+        
+
         return view('customer.home', compact('categories', 'brands', 'products', 'product_count'));
     }
 

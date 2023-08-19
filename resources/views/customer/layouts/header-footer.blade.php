@@ -19,7 +19,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
         integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
 </head>
 
@@ -32,11 +33,11 @@ flex-direction: column;">
     <header>
         <!-- Jumbotron -->
         <div class="p-3 text-center bg-white border-bottom">
-            <div class="container">
+            <div class="container-fluid">
                 <div class="row gy-3">
                     <!-- Left elements -->
                     <div class="col-lg-2 col-sm-4 col-4">
-                        <a href="https://mdbootstrap.com/" target="_blank"
+                        <a href="{{ route('home') }}" 
                             class="float-start d-flex gap-2 align-items-center justify-content-center">
                             <img src="{{ asset('assets/images/logo-icon.png') }}" height="35" />
                             <img src="{{ asset('assets/images/logo-text-black.png') }}" height="30" />
@@ -65,6 +66,7 @@ flex-direction: column;">
                                 </a>
 
                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                    <a class="dropdown-item" href="{{ route('orders.index') }}">My Orders</a>
                                     <a class="dropdown-item" href="{{ route('profile') }}">Profile</a>
                                     <a class="dropdown-item" href="{{ route('changePassword') }}">Change Password</a>
                                     <form action="{{ route('logout') }}" method="post">
@@ -84,6 +86,39 @@ flex-direction: column;">
             </div>
         </div>
         <!-- Jumbotron -->
+        @php
+    $images = [
+            'https://static.vecteezy.com/system/resources/previews/002/294/859/original/flash-sale-web-banner-design-e-commerce-online-shopping-header-or-footer-banner-free-vector.jpg',
+            'https://static.vecteezy.com/system/resources/previews/004/299/835/original/online-shopping-on-phone-buy-sell-business-digital-web-banner-application-money-advertising-payment-ecommerce-illustration-search-free-vector.jpg',
+            'https://www.internetcreation.net/wp-content/uploads/2015/04/banner-e-commerce1.png',
+        ];
+@endphp
+        <div class="container-fluid p-0 m-0">
+            <div id="myCarousel" class="carousel slide" data-ride="carousel">
+                <ol class="carousel-indicators">
+                    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                    <li data-target="#myCarousel" data-slide-to="1"></li>
+                    <li data-target="#myCarousel" data-slide-to="2"></li>
+                </ol>
+                
+                <div class="carousel-inner">
+                    @foreach ($images as $key => $image)
+                        <div class="carousel-item {{ $key == 0 ? 'active' : '' }}">
+                            <img src="{{ $image }}" alt="Image {{ $key + 1 }}" class="d-block w-100" height="400">
+                        </div>
+                    @endforeach
+                </div>
+                
+                <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
+        </div>
 
         <!-- Heading -->
         <div class="bg-primary mb-4">
@@ -113,13 +148,15 @@ flex-direction: column;">
 
 
 
-   
+ 
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
 
 
     <script type="text/javascript" src="https://f001.backblazeb2.com/file/buonzz-assets/jquery.ph-locations.js"></script>
 
+    <script src="{{ asset('assets/extra-libs/DataTables/datatables.min.js') }}"></script>
 
 
 
