@@ -1,66 +1,187 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+App Name: GoShopNow
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Developer Skill: Beginner 
 
-## About Laravel
+Backend Framework: Laravel
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+Frontend: HTML, CSS, Bootstrap, JavaScript
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+User Types:
 
-## Learning Laravel
+1.User 
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+2.Admin
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+Functions(User):
+1. Login and Register
+2. Browse Products
+3. Filter Products by Categories
+4. Filter Products by Brands
+6. Filter by Price Range (Min and Max)
+7. Search Products
+8. View Product
+9. Add to Cart
+10. View Cart Items
+11. Remove Cart Items
+12. Calculate Total Items in Cart (Total + Shipping Fee)
+13. Update Account Details
+14. Change Account Password
+15. Logout
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
 
-## Laravel Sponsors
+Functions(Admin)
+1. Login
+2. Dashboard 
+3. Manage Product Category
+4. Manage Brand
+5. Manage Product
+6. Manage User
+7. Archive
+8. Update Account Details
+9. Change Account Password
+10. Logout
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+Limitations:
+Web app doesn't have Checkout and Tracking of Order Function
 
-### Premium Partners
+Database Schema:
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
+users table:
 
-## Contributing
+id (Primary key, auto-incrementing integer),
+name (String),
+email (String),
+password (String),
+remember_token (String, nullable),
+is_admin (tinyint),
+is_active (tinyint),
+created_at (Timestamp),
+updated_at (Timestamp)
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+addresses table:
 
-## Code of Conduct
+id (Primary key, auto-incrementing integer),
+user_id (Foreign key referencing users.id),
+address_line_1 (String),
+address_line_2 (String, nullable),
+city (String),
+state (String),
+postal_code (String),
+created_at (Timestamp),
+updated_at (Timestamp)
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+mobile_numbers table:
 
-## Security Vulnerabilities
+id (Primary key, auto-incrementing integer)
+user_id (Foreign key referencing users.id)
+mobile_number (String)
+created_at (Timestamp)
+updated_at (Timestamp)
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+categories table:
 
-## License
+id (Primary key, auto-incrementing integer),
+name (String),
+created_at (Timestamp),
+updated_at (Timestamp)
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+brands table:
+
+id (Primary key, auto-incrementing integer),
+name (String),
+created_at (Timestamp),
+updated_at (Timestamp)
+
+products table:
+
+id (Primary key, auto-incrementing integer),
+name (String),
+description (Text),
+price (Decimal),
+brand_id (Foreign key referencing brands.id),
+category_id (Foreign key referencing categories.id),
+created_at (Timestamp),
+updated_at (Timestamp)
+
+stocks table:
+
+id (Primary key, auto-incrementing integer),
+product_id (Foreign key referencing products.id),
+size_id (Foreign key referencing sizes.id),
+quantity (Integer),
+created_at (Timestamp),
+updated_at (Timestamp)
+
+carts table:
+
+id (Primary key, auto-incrementing integer),
+user_id (Foreign key referencing users.id),
+created_at (Timestamp),
+updated_at (Timestamp)
+
+cart_items table:
+
+id (Primary key, auto-incrementing integer),
+cart_id (Foreign key referencing carts.id),
+product_id (Foreign key referencing products.id),
+size (String),
+quantity (Integer),
+created_at (Timestamp),
+updated_at (Timestamp)
+
+Models and Relationships
+
+User Model (User.php):
+
+hasOne(Address::class)
+
+hasOne(MobileNumber::class)
+
+hasMany(Cart::class)
+
+Address Model (Address.php):
+
+belongsTo(User::class)
+
+
+MobileNumber Model (MobileNumber.php):
+
+belongsTo(User::class)
+
+
+Cart Model (Cart.php):
+
+belongsTo(User::class)
+
+hasMany(CartItem::class)
+
+CartItem Model (CartItem.php):
+
+belongsTo(Cart::class)
+
+belongsTo(Product::class)
+
+
+Product Model (Product.php):
+belongsTo(Brand::class)
+
+belongsTo(Category::class)
+
+hasMany(Stock::class)
+
+hasMany(CartItem::class)
+
+Brand Model (Brand.php):
+
+
+hasMany(Product::class)
+
+Category Model (Category.php):
+
+belongsToMany(Product::class, 'product_category')
+
+Stock Model (Stock.php):
+
+belongsTo(Product::class)
+
