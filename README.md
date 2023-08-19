@@ -1,6 +1,9 @@
 App Name: GoShopNow
 
-Developer Skill: Beginner 
+Description:
+"GoShopNow" is an innovative clothing e-commerce platform designed with the Laravel backend framework and a dynamic frontend built using HTML, CSS, Bootstrap, and JavaScript. The platform is tailor-made for users seeking a seamless shopping experience for a wide array of clothing products.
+
+Developer Skill: Advance Beginner 
 
 Backend Framework: Laravel
 
@@ -9,7 +12,7 @@ Frontend: HTML, CSS, Bootstrap, JavaScript
 
 User Types:
 
-1.User 
+1.User(Customer)
 
 2.Admin
 
@@ -25,9 +28,11 @@ Functions(User):
 10. View Cart Items
 11. Remove Cart Items
 12. Calculate Total Items in Cart (Total + Shipping Fee)
-13. Update Account Details
-14. Change Account Password
-15. Logout
+13. Checkout Order
+14. Payment Order
+15. Update Account Details
+16. Change Account Password
+17. Logout
 
 
 Functions(Admin)
@@ -36,14 +41,13 @@ Functions(Admin)
 3. Manage Product Category
 4. Manage Brand
 5. Manage Product
-6. Manage User
-7. Archive
-8. Update Account Details
-9. Change Account Password
-10. Logout
+6. Manage Order and Payment
+7. Manage User
+8. Archive
+9. Update Account Details
+10. Change Account Password
+11. Logout
 
-Limitations:
-Web app doesn't have Checkout and Tracking of Order Function
 
 Database Schema:
 
@@ -130,6 +134,22 @@ quantity (Integer),
 created_at (Timestamp),
 updated_at (Timestamp)
 
+orders:
+id (Primary key, auto-incrementing integer),
+user_id (Foreign key),
+product_id (Foreign key),
+order_status (String),
+product_size (String),
+quantity (Integer),
+amount (Decimal),
+
+payments:
+id (Primary key, auto-incrementing integer),
+order_id (Foreign key),
+checkout_link(String),
+external_id (String),
+status (String),
+
 Models and Relationships
 
 User Model (User.php):
@@ -184,4 +204,18 @@ belongsToMany(Product::class, 'product_category')
 Stock Model (Stock.php):
 
 belongsTo(Product::class)
+
+Order Model (Order.php):
+
+belongsTo(User::class)
+
+hasMany(OrderItem::class)
+
+hasOne(Payment::class)
+
+Payment Model (Payment.php):
+
+belongsTo(Order::class)
+
+
 
