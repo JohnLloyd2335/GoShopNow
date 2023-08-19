@@ -5,10 +5,9 @@ Description:
 
 Developer Skill: Advance Beginner 
 
-Backend Framework: Laravel
+Backend Framework: Laravel 10
 
-Frontend: HTML, CSS, Bootstrap, JavaScript
-
+Frontend: HTML, CSS, Bootstrap, Blade ,JavaScript
 
 User Types:
 
